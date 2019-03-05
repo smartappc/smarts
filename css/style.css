@@ -1,0 +1,562 @@
+
+body{
+    font-size: 18px;
+    font-weight: bold;
+    font-family: Arial;
+}
+.main {
+    background: url("../images/background.png") center no-repeat;
+    background-size: contain;
+    height: 100vh;
+}
+.main .over {
+    background: rgba(134, 207, 210, 0.4);
+    height: 100%;
+}
+.search .btn {
+    padding: 3px 12px;
+    margin-top: -3px;
+}
+ li {
+     list-style: none;
+ }
+a , .sub-menu{
+    color: #346987;
+}
+.w2 {
+    width: 20%;
+    display: inline-block;
+}
+.w3 {
+    width: 30%;
+    display: inline-block
+}
+.w4 {
+    width: 40%;
+    display: inline-block
+}
+.w5 {
+    width: 50%;
+    display: inline-block
+}
+.w6 {
+    width: 60%;
+    display: inline-block
+}
+a:hover {
+    text-decoration: none;
+}
+.form-control {
+
+}
+/*login*/
+.login .panel {
+    width: 50%;
+    margin:  100px auto;
+    background: rgba(255, 255, 255, 0.5);
+}
+.login .panel .form-control {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.login  .panel-default {
+    border-color: #989898;
+    box-shadow: 4px 4px 2px #fff7f7, -4px -1px 2px #fff7f7;
+}
+.login  .panel-default > .panel-heading {
+    color: #333;
+    background-color:  #a5c5d7;
+    border-color: #d3e0e9;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+.login  .panel-default .checkbox input {
+    margin-top: 8px;
+}
+.login  .panel-default .checkbox span {
+    margin-right: 25px;
+    display: inline-block;
+}
+.login .panel-default .log-btn {
+    text-align: right;
+    float: left;
+    margin-left: 5px;
+}
+.login  .panel-default .log-btn button {
+    font-size: 18px;
+    padding: 6px 20px;
+    font-weight: bold;
+}
+/*end login */
+.btn-success.add {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333333;
+    background-color: #d9edf7;
+    border-color: #d3e0e9;
+    margin-bottom: 10px;
+}
+.btn-success.focus, .btn-success:focus {
+    color: #333333;
+    background-color: #d9edf7;
+    border-color: #d3e0e9;
+}
+/*start edit bootstrap*/
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:focus,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > li  a {
+    color: #555;
+    background-color: #eee;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Noto Kufi Arabic', sans-serif;
+}
+.nav .logo {
+    max-width: none;
+    width: 80px;
+}
+.nav .avtar {
+    display: inline-block;
+    width:  60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    padding: 2px;
+    margin-top: 5px;
+}
+.edit-avtar {
+    border: 1px solid #cccccc;
+}
+.table > thead > tr > th {
+    text-align: center;
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:focus,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > li a {
+    background: transparent;
+}
+.smart {
+    text-align: center;
+}
+.smart h3 {
+    font-weight: bold;
+    margin-bottom: 0;
+}
+.panel-info {
+    border-color: #bce8f1;
+    box-shadow: 2px 2px 2px #ccc;
+}
+.panel-info > .panel-heading {
+    font-size: 20px;
+    font-weight: bold;
+}
+.panel-info .panel-body {
+  padding: 15px 0;
+}
+.panel-info .panel-body ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.panel-info .panel-body ul li,.sub {
+
+}
+.panel-info .panel-body ul li:last-child {
+    border-bottom: none;
+}
+.panel-info hr {
+    margin: 0;
+}
+.panel-info .panel-body ul li a ,.sub-menu{
+    font-size: 17px;
+    font-weight: bold;
+    padding: 0 15px;
+    display: inline-block;
+    text-decoration: none;
+}
+table thead {
+    background-color: #d9edf7;
+}
+.table-bordered > thead > tr > th {
+    text-align: center;
+}
+.table-striped > tbody > tr:nth-of-type(2n) {
+    background-color: #d9edf7;
+}
+/*end edit bootstrap*/
+
+/*start box*/
+.box {
+    margin-bottom: 100px;
+    background: url("../images/background.png") center no-repeat;
+    background-size: contain;
+    min-height: 800px;
+}
+.box .overlay {
+    background: rgba(134, 207, 210, 0.4);
+    padding: 20px;
+    border-radius: 10px;
+    min-height: 800px;
+}
+.box h2 {
+    margin: 0 0 20px 0;
+    background-color: #6b9dbb;
+    color: #ffffff;
+    padding: 5px 10px;
+    display: inline-block;
+    border-radius: 5px;
+}
+.box label {
+    font-size: 18px;
+    font-weight: bold;
+}
+.box .btn-info {
+    font-size: 16px;
+    font-weight: bold;
+    color: #216a94;
+    margin: 0 8px;
+}
+.box input, .select2 select, textarea.form-control {
+    font-size: 18px;
+    font-weight: bold;
+    border: 1px solid #b3afaf;
+    background: rgba(255, 255, 255, .4);
+}
+.box textarea.more{
+    height: 90px!important;
+}
+
+
+.box  textarea.form-control {
+    height: 200px;
+    font-size: 18px;
+    font-weight: bold;
+    border: 1px solid #b3afaf;
+    background: rgba(255, 255, 255, .4);
+
+}
+.box span {
+    color: #216a94;
+    font-size: 16px;
+}
+.form-group output {
+    font-size: 20px;
+    line-height: 1.6;
+    color: #555;
+}
+
+btn-group-sm > .btn, .btn-sm {
+    padding: 5px;
+    font-size: 14px;
+    line-height: normal;
+    border-radius: 3px;
+    font-weight: bold;
+}
+btn-group-sm > .btn, .btn-sm i {
+    font-size: 12px;
+}
+/*edit select box*/
+.selectboxit-container {
+    width: 100%;
+}
+.officer {
+    position: relative;
+}
+.selectboxit-container .selectboxit {
+    width: 100%;
+}
+.selectboxit-container span, .selectboxit-container .selectboxit-options a {
+    height: 35px;
+    line-height: 35px;
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+}
+.selectboxit-text {
+    float: right;
+}
+.selectboxit-arrow-container {
+    left: 0;
+    right: auto;
+}
+.selectboxit-container .selectboxit-options {
+    text-align: right;
+}
+.selectboxit-container span, .selectboxit-container .selectboxit-options a {
+    color: #636b6f;
+}
+/*edit select box*/
+/*end  box*/
+
+/*start search  */
+.officers .input-group{
+    margin-bottom: 20px;
+    display: block;
+}
+.search .form-control {
+    width: 350px;
+    float: right;
+    margin-left: 7px;
+}
+.search .btn-default {
+    color: #636b6f;
+    background-color: #ededed;
+    border-color: #aaa;
+}
+ b {
+     color: red;
+     font-weight: bold;
+}
+.table > tbody > tr > td,
+.table > tbody > tr > th,
+.table > tfoot > tr > td,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > thead > tr > th {
+    padding: 8px;
+    line-height: 1.6;
+    vertical-align: top;
+    border: 1px solid #ccc;
+}
+.table > tbody > tr > td{
+    font-size: 17px;
+    text-align: center;
+    font-weight: bold;
+}
+.table > tbody > tr > td:last-child{
+    width: 220px;
+}
+td.last-td-user {
+    width: 300px !important;
+    margin-left: 5px;
+}
+/*end  search */
+
+/*start show */
+.show h3 {
+     font-size: 20px;
+    font-weight: bold;
+    color: #216a94;
+    margin: 0 10px  5px 0;
+}
+
+.show .row {
+    margin-bottom: 20px;
+    margin-right: 0;
+    margin-left: 0;
+}
+.show label {
+    color:  #216a94;
+}
+.show p {
+    color: #636b6f;
+    padding: 10px;
+    background-color: #ffffff;
+}
+.show .user {
+    overflow: hidden;
+
+}
+/*end  show */
+
+
+/*start sub ment*/
+
+.panel-info .panel-body > li {
+
+}
+.sub-menu ul {
+    display: none;
+    transition:  all 1.5s ease-in-out;
+}
+.panel-info .panel-body .sub-menu ul li {
+border-bottom: none;
+}
+.panel-info .panel-body .sub-menu ul li a {
+   color: #4bb3ef;
+}
+.panel-info .panel-body li:hover ul {
+
+}
+/*end sub ment*/
+
+
+/* start edit number*/
+.number {
+     padding-right: 0;
+}
+.number input {
+    font-size: 15px;
+    font-weight: normal;
+}
+.year {
+    padding-left: 5px;
+}
+.search .form-control.select2 {
+    width: 150px;
+    margin-left: 15px;
+}
+
+.search .form-control.number-search {
+    width: 100px;
+}
+.search .select2 , .search .number-search {
+
+
+}
+
+.search .slash {
+    position: relative;
+    left: 117px;
+    font-size: 20px;
+}
+.numbers {
+    position: relative;
+}
+.year .slash-add {
+    position: absolute;
+    top: 42%;
+    right: 101%
+}
+.year .slash-add2 {
+    position: absolute;
+    top: 52%;
+    right: 102%;
+}
+.form-control {
+    height: 28px;
+    padding: 3px 12px;
+    border-radius: 2px;
+}
+input[type="date"].form-control,
+input[type="datetime-local"].form-control,
+input[type="month"].form-control,
+input[type="time"].form-control {
+    line-height: 23px;
+}
+.form-control, output {
+    display: block;
+    font-size: 20px;
+    line-height: 1.6;
+    color: #555;
+}
+.sub {
+    display: none;
+
+}
+
+.sub a {
+    display: block !important;
+    background-color: #cccccc;
+}
+.sub-menu {
+    cursor: pointer;
+}
+.sub-menu i {
+    position: absolute;
+    left: 19px;
+}
+
+/*victim*/
+.victim {
+    border:  1px solid  #cccccc;
+    overflow:  hidden;
+    padding: 10px;
+    margin-bottom: 20px;
+    background: rgba(255, 255, 255, .5);
+}
+ .victim-heading {
+     font-size: 20px;
+     font-weight: bold;
+     margin: 0 0 10px 0;
+     background-color: #6b9dbb;
+     color: #ffffff;
+     padding: 5px 10px;
+     display: inline-block;
+}
+
+
+.other-victim {
+    background: rgba(255, 255, 255, .8);
+    color: #333333;
+    padding: 0 30px;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.other-victim i {
+    text-align: right;
+    position: absolute;
+    right: 50px;
+    line-height: 27px
+}
+
+.add-other-victim {
+    display: none;
+}
+/*print*/
+.prints {
+    padding: 2px 16px;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    text-align: left;
+    display: block;
+}
+.prints i {
+    margin: 5px;
+}
+#printDiv hr {
+    margin-bottom: 0;
+    margin-top: 0;
+}
+.title {
+    font-weight: bold;
+    background: transparent !important;
+    color: #31708f !important;
+    text-align: center;
+    margin: auto !important;
+    width: 56%;
+}
+
+
+/*data table*/
+.dataTables_length{
+    float: left;
+    color: #535353;
+    margin-left: 50px;
+}
+.dataTables_length select {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 15px;
+}
+.dataTables_filter label {
+    color: #535353;
+}
+.dataTables_filter input {
+    border: 1px solid #d2d2d2;
+    margin-right: 10px;
+    background: rgba(255, 255, 255, .6);
+    height: 29px;
+    padding: 0 5px;
+}
+.dataTables_info{
+    float: left;
+    color: #535353;
+}
+.paginate_button {
+    color: #535353;
+    cursor: pointer;
+    padding: 5px;
+}
+.paginate_button.next {
+    margin-right: 10px;
+}
+.paginate_button.previous {
+    margin-left: 10px;
+}
