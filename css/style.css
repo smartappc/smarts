@@ -15,7 +15,7 @@ body{
 }
 .search .btn {
     padding: 3px 12px;
-    margin-top: -3px;
+    margin-top: -7px;
 }
  li {
      list-style: none;
@@ -221,7 +221,7 @@ table thead {
     margin: 0 8px;
 }
 .box input, .select2 select, textarea.form-control {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
     border: 1px solid #b3afaf;
     background: rgba(255, 255, 255, .4);
@@ -241,7 +241,7 @@ table thead {
 }
 .box span {
     color: #216a94;
-    font-size: 16px;
+    font-size: 15px;
 }
 .form-group output {
     font-size: 20px;
@@ -411,7 +411,7 @@ border-bottom: none;
 
 .search .slash {
     position: relative;
-    left: 117px;
+    left: 171px;
     font-size: 20px;
 }
 .numbers {
@@ -419,10 +419,16 @@ border-bottom: none;
 }
 .year .slash-add {
     position: absolute;
-    top: 42%;
-    right: 101%
+    top: 50%;
+    right: 104%
 }
 .year .slash-add2 {
+    position: absolute;
+    top: 52%;
+    right: 102%;
+}
+
+.year .slash-add3 {
     position: absolute;
     top: 52%;
     right: 102%;
@@ -440,7 +446,7 @@ input[type="time"].form-control {
 }
 .form-control, output {
     display: block;
-    font-size: 20px;
+    font-size: 16px;
     line-height: 1.6;
     color: #555;
 }
@@ -559,4 +565,12 @@ input[type="time"].form-control {
 }
 .paginate_button.previous {
     margin-left: 10px;
+}
+/*-------------- date picker            --- */
+div.ui-datepicker{
+    font-size:17px;
+}
+
+div.ui-datepicker {
+    width: 18.3%;
 }

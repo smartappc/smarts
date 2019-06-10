@@ -20,8 +20,8 @@
 
                     @foreach($users as $user)
                         <tr>
-                            <td> {{ $user->full_name }}</td>
-                            <td> {{ $user->name }}</td>
+                            <td><a href="{{route('userCause', $user->full_name)}}"> {{ $user->full_name }} </a></td>
+                            <td>{{ $user->name }}</td>
                             <td> {{ $user->status == 1 ? 'مدير' : 'مشرف' }}</td>
                             <td>@if($user->image != "0")
                                     <img src = "{{ asset('images/' . $user->image ) }}" width="40">

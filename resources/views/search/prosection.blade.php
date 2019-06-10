@@ -11,14 +11,26 @@
             <div class="search">
                 <form action="{{ route('prosection') }}" method="POST" role="search">
                     {{ csrf_field() }}
+
+                    {{--------}}
                     <div class="input-group">
-                        <input type="text" class="form-control" name="q" placeholder="ادخل رقم الجنايات !">
+                        <input class="form-control number-search" type="number" name="p" min="1" lang="en">
+                        <label class="slash">/</label>
+                        <select style="background: rgba(255, 255, 255, .4);"  class="form-control select2" name="q">
+                            <?php
+                            for($i = 2014; $i <= 2040 ; $i++) {  ?>
+                            <option value="{{ $i }}">{{ $i }}</option>
+                            <?php }
+                            ?>
+                        </select>
 
                         <button type="submit" class="btn btn-default">
                             <i class="fa fa-search"></i>
                         </button>
                         </span>
                     </div>
+                    {{--------}}
+
                 </form>
             </div>
             <!--end form -->
@@ -86,10 +98,10 @@
 
                                     <button class="btn btn-danger btn-sm " onclick="return confirm('هل انت متأكد من عملية الحذف')"><i class="fa fa-times "></i> حذف</button> &nbsp;
                                 </form>
-
+                                @endif
 
                                 <a href="{{ route('cause.edit', $user->id) }} " class="pull-left btn btn-success btn-sm"><i class="fa fa-edit"></i> تعديل</a>
-                               @endif
+
                                 <a href="{{ route('cause.show', $user->id) }} " class="pull-left btn btn-info btn-sm"><i class="fa fa-eye"></i> عرض </a>
                             </td>
                         </tr>

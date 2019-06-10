@@ -1,17 +1,18 @@
 
+
 @extends('layouts.main')
 
 @section('content')
     <div class="box">
         <div class="overlay">
             <a href="{{ route('cause.create') }}" class="btn btn-success add"><i class="fa fa-plus"></i> أضافة قضية جديدة </a>
-            <h2 class="title">قضايا الادارة العامة للتحقيقات </h2>
+            <h2 class="title">  قضايا تم ادخالها بواسطة  : {{ $user }}</h2>
             <table id="main" class="table table-bordered table-striped text-center datatable">
                 <thead>
                 <tr>
                     <th>الرقم المتسلسل</th>
                     <th>حصر قسم حماية الطفل</th>
-                    <th>حصر الادارة العامة للتحقيقات </th>
+                    <th>رقم الجنايات   </th>
                     <th>اسماء المجني عليهم</th>
                     <th>  اسماء المتهمين</th>
                     <th>  تمت اضافته بواسطة</th>
@@ -27,7 +28,7 @@
                         <tr>
                             <td> {{$serial_no -- }}</td>
                             <td> {{ $c->number }}</td>
-                            <td> {{ $c->child_id }}</td>
+                            <td> {{ $c->prosection_id }}</td>
                             <td>
                                 {{ $c->victim_name1  }}
                                 @if(!empty($c->victim_name1)) <br> @endif
@@ -58,7 +59,7 @@
 
                                 {!!  str_replace("\r\n", "<br>", $c->accused_name)  !!}
                             </td>
-                            <td> <a href="{{route('userCause', $c->user)}}"> {{ $c->user }} </a></td>
+                            <td> {{ $c->user }}</td>
                             <td>
                                 @if(!Auth::guest() && Auth::user()->status == 1)
                                     <form class="pull-left" action="{{  route('cause.destroy', $c->id) }}" method="post" enctype="multipart/form-data">

@@ -10,54 +10,77 @@
             <div class="row">
 
 
-                <div class="col-xs-12 col-sm-3 year select2 ">
-                    <div class="form-group">
+            {{------------------------------------------------------}}
+                <div class="col-xs-12 col-sm-2 year">
+                    <div  class="form-group numbers  number-search">
                         <span>   حـصـر  قسـم حماية  الطفل : </span>
+                        <input class="form-control" type="number" name="number2" min="1" lang="en" autocomplete="off">
+                    <label class="slash-add">/</label>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-2  select2 ">
+                    <div class="form-group">
+                        <span style="opacity: 0"> . </span>
                         <select style="background: rgba(255, 255, 255, .4);"  class="form-control select2" name="number">
                             <option value="">....</option>
                             <?php
-                            for($i = 2015; $i <= 2040 ; $i++) {  ?>
+                            for($i = 2014; $i <= 2040 ; $i++) {  ?>
                             <option value="{{ $i }}">{{ $i }}</option>
                             <?php }
                             ?>
                         </select>
-                        <label class="slash-add">/</label>
+                    </div>
+                </div>
+                {{------------------------------------------------------}}
+
+                {{------------------------------------------------------}}
+                <div class="col-xs-12 col-sm-2 year">
+                    <div  class="form-group numbers">
+                        <span> حصر الادارة العامة للتحقيقات</span>
+                        <input class="form-control" type="number" name="number3" min="1" lang="en" autocomplete="off">
+                        <label class="slash-add2">/</label>
                     </div>
                 </div>
 
-                <div class="col-xs-12 col-sm-1">
-                    <div  class="form-group numbers  number-search">
+                <div class="col-xs-12 col-sm-2">
+                    <div class="form-group numbers">
                         <span style="opacity: 0"> . </span>
-                        <input class="form-control" type="number" name="number2" min="1" lang="en">
-                    </div>
-                </div>
-
-
-                <div class="col-xs-12 col-sm-3 year">
-                    <div class="form-group numbers"><span> حصر الادارة العامة للتحقيقات(جُنح) :</span>
                         <select style="background: rgba(255, 255, 255, .4);"  class="form-control select2" name="child_id">
                             <option value="">....</option>
                             <?php
-                            for($i = 2015; $i <= 2040 ; $i++) {  ?>
+                            for($i = 2014; $i <= 2040 ; $i++) {  ?>
                             <option value="{{ $i }}" value="{{ Request::old('child_id') }}">{{ $i }}</option>
                             <?php }
                             ?>
                         </select>
-                        <label class="slash-add2">/</label>
                     </div>
                 </div>
-                <div class="col-xs-12 col-sm-1">
+                {{------------------------------------------------------}}
+
+                {{------------------------------------------------------}}
+                <div class="col-xs-12 col-sm-2 year">
                     <div  class="form-group numbers">
-                        <span style="opacity: 0"> . </span>
-                        <input class="form-control" type="number" name="number3" min="1" lang="en">
+                        <span>رقم الجنايات  :</span>
+                        <input class="form-control" type="number" name="number4" min="1" lang="en" autocomplete="off">
+                        <label class="slash-add3">/</label>
                     </div>
                 </div>
 
-                <div class="col-xs-12 col-sm-4">
-                    <div class="form-group">
-                        <span>رقم الجنايات  :</span> <input type="text" class="form-control" name="prosection_id" value="{{ Request::old('prosection_id') }}">
+                <div class="col-xs-12 col-sm-2 ">
+                    <div class="form-group numbers">
+                        <span style="opacity: 0"> . </span>
+                        <select style="background: rgba(255, 255, 255, .4);"  class="form-control select2" name="prosection_id">
+                            <option value="">....</option>
+                            <?php
+                            for($i = 2014; $i <= 2040 ; $i++) {  ?>
+                            <option value="{{ $i }}" value="{{ Request::old('prosection_id') }}">{{ $i }}</option>
+                            <?php }
+                            ?>
+                        </select>
                     </div>
                 </div>
+                {{------------------------------------------------------}}
             </div>
 
 
@@ -92,10 +115,9 @@
 
                  <div class="col-xs-12 col-md-3">
                      <div class="form-group">
-                         <span>تاريخ الواقعة :</span> <input type="date" class="form-control" name="inc_date" value="{{ Request::old('inc_date') }}">
+                         <span>تاريخ الواقعة :</span> <input type="text"  class="form-control myDate-picker" placeholder="yyyy-mm-dd" name="inc_date" value="{{ Request::old('inc_date') }}" autocomplete="off">
                      </div>
                  </div>
-
              </div>
 
             <!-- start victims -->
@@ -131,7 +153,7 @@
                     <div class="col-xs-12 col-md-3">
                         <div class="form-group">
                             <span>تاريخ الميلاد:</span>
-                            <input type="date" class="form-control more" name="victim_birthday1" value="{{ Request::old('victim_birthday1') }}">
+                            <input type="text" class="form-control more myDate-picker" placeholder="yyyy-mm-dd" name="victim_birthday1" value="{{ Request::old('victim_birthday1') }}" autocomplete="off">
                         </div>
                     </div>
                 </div>
@@ -169,7 +191,7 @@
                 <div class="col-xs-12 col-md-3">
                     <div class="form-group">
                         <span>تاريخ الميلاد:</span>
-                        <input type="date" class="form-control more" name="victim_birthday2" value="{{ Request::old('victim_birthday2') }}">
+                        <input type="text" class="form-control more myDate-picker" name="victim_birthday2" placeholder="yyyy-mm-dd" value="{{ Request::old('victim_birthday2') }}" autocomplete="off">
                     </div>
                 </div>
             </div>
@@ -204,11 +226,11 @@
 
                     <div class="col-xs-12 col-md-3">
                         <div class="form-group">
-                            <input type="date" class="form-control more" name="victim_birthday3" value="{{ Request::old('victim_birthday3') }}">
+                            <input type="text" class="form-control more myDate-picker" name="victim_birthday3" placeholder="yyyy-mm-dd" value="{{ Request::old('victim_birthday3') }}" autocomplete="off">
                         </div>
                     </div>
                 </div>
-                <!-- ------------------------------------end 3---------------------------------------->
+                <!-- ------------------------------------end 3------------------------------------------>
 
                 <!-- -----------------------------------start 4----------------------------------------->
                 <div class="row">
@@ -237,7 +259,7 @@
 
                     <div class="col-xs-12 col-md-3">
                         <div class="form-group">
-                            <input type="date" class="form-control more" name="victim_birthday4" value="{{ Request::old('victim_birthday4') }}">
+                            <input type="text" class="form-control more myDate-picker" name="victim_birthday4" placeholder="yyyy-mm-dd" value="{{ Request::old('victim_birthday4') }}" autocomplete="off">
                         </div>
                     </div>
                 </div>
@@ -264,7 +286,7 @@
 
                 <div class="col-xs-12 col-md-3">
                     <div class="form-group">
-                        <textarea type="text" class="form-control more" name="victim_birthday" >{{ Request::old('victim_birthday') }}</textarea>
+                        <textarea type="text" class="form-control more"  name="victim_birthday" >{{ Request::old('victim_birthday') }}</textarea>
                     </div>
                 </div>
             </div>
@@ -306,7 +328,7 @@
                     <div class="col-xs-12 col-md-3">
                         <div class="form-group">
                             <span>تاريخ الميلاد:</span>
-                            <input type="date" class="form-control more" name="accused_birthday1" value="{{ Request::old('accused_birthday1') }}">
+                            <input type="text" class="form-control more myDate-picker" placeholder="yyyy-mm-dd" name="accused_birthday1" value="{{ Request::old('accused_birthday1') }}" autocomplete="off">
                         </div>
                     </div>
                 </div>
@@ -318,7 +340,7 @@
                     <div class="col-xs-12 col-md-3">
                         <div class="form-group">
                             <span> الاسم :</span>
-                            <input type="text" class="form-control more" name="accused_name2" value="{{ Request::old('accused_name2') }}" autocomplete="off">
+                            <input type="text" class="form-control more"  name="accused_name2" value="{{ Request::old('accused_name2') }}" autocomplete="off">
                         </div>
                     </div>
 
@@ -344,7 +366,7 @@
                     <div class="col-xs-12 col-md-3">
                         <div class="form-group">
                             <span>تاريخ الميلاد:</span>
-                            <input type="date" class="form-control more" name="accused_birthday2" value="{{ Request::old('accused_birthday2') }}">
+                            <input type="text" class="form-control more myDate-picker" placeholder="yyyy-mm-dd" name="accused_birthday2" value="{{ Request::old('accused_birthday2') }}" autocomplete="off">
                         </div>
                     </div>
                 </div>
@@ -376,7 +398,7 @@
 
                     <div class="col-xs-12 col-md-3">
                         <div class="form-group">
-                            <input type="date" class="form-control more" name="accused_birthday3" value="{{ Request::old('accused_birthday3') }}">
+                            <input type="text" class="form-control more myDate-picker" placeholder="yyyy-mm-dd" name="accused_birthday3" value="{{ Request::old('accused_birthday3') }}" autocomplete="off">
                         </div>
                     </div>
                 </div>
@@ -408,7 +430,7 @@
 
                     <div class="col-xs-12 col-md-3">
                         <div class="form-group">
-                            <input type="date" class="form-control more" name="accused_birthday4" value="{{ Request::old('accused_birthday4') }}">
+                            <input type="text" class="form-control more myDate-picker" placeholder="yyyy-mm-dd" name="accused_birthday4" value="{{ Request::old('accused_birthday4') }}" autocomplete="off">
                         </div>
                     </div>
                 </div>
@@ -450,20 +472,20 @@
 
                 <div class="col-xs-12 col-md-3">
                     <div class="form-group">
-                        <span>تاريخ استلام القضية  :</span> <input type="date" class="form-control" name="officer_date" value="{{ Request::old('officer_date') }}">
+                        <span>تاريخ استلام القضية  :</span> <input type="text" class="form-control myDate-picker" placeholder="yyyy-mm-dd" name="officer_date" value="{{ Request::old('officer_date') }}" autocomplete="off">
                     </div>
                 </div>
 
                 <div class="col-xs-12 col-md-3">
                     <div class="form-group">
-                        <span>تاريخ التصرف :</span> <input type="date" class="form-control" name="act_date" value="{{ Request::old('act_date') }}">
+                        <span>تاريخ التصرف :</span> <input type="text" class="form-control myDate-picker" placeholder="yyyy-mm-dd" name="act_date" value="{{ Request::old('act_date') }}" autocomplete="off">
                     </div>
                 </div>
 
                 <div class="col-xs-12 col-md-3">
                     <div class="form-group">
                         <div class="form-group">
-                            <span>جهة  التصرف :</span> <input type="text" class="form-control" name="act_place" value="{{ Request::old('act_place') }}">
+                            <span>جهة  التصرف :</span> <input type="text" class="form-control" name="act_place" value="{{ Request::old('act_place') }}" autocomplete="off">
                         </div>
                     </div>
                 </div>

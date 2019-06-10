@@ -192,7 +192,7 @@
                                {{ $cause->accused_name4 }}
                                @if(!empty($cause->accused_name4 )) <br> @endif
 
-                               {!!  str_replace("\r\n", "<br>", $cause->victim_name)  !!}
+                               {!!  str_replace("\r\n", "<br>", $cause->accused_name)  !!}
                            </td>
                            <td>
                                {{ $cause->accused_id1  }}

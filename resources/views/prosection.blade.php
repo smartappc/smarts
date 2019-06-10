@@ -58,7 +58,7 @@
 
                         {!!  str_replace("\r\n", "<br>", $c->accused_name)  !!}
                     </td>
-                    <td> {{ $c->user }}</td>
+                    <td> <a href="{{route('userCause', $c->user)}}"> {{ $c->user }} </a></td>
                      <td>
                          @if(!Auth::guest() && Auth::user()->status == 1)
                         <form class="pull-left" action="{{  route('cause.destroy', $c->id) }}" method="post" enctype="multipart/form-data">

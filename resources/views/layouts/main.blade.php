@@ -8,6 +8,8 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    <title>وزارة الداخلية</title>
+
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -15,10 +17,8 @@
     <link href="{{ asset('css/jquery-ui-1.9.2.custom.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/jquery.selectBoxIt.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/media.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/rtl.css') }}" rel="stylesheet"/>
-
-    <title>وزارة الداخلية</title>
-
 
 </head>
 <body>

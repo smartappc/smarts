@@ -92,9 +92,9 @@
                                 <button class="btn btn-danger btn-sm " onclick="return confirm('هل انت متأكد من عملية الحذف')"><i class="fa fa-times "></i> حذف</button> &nbsp;
                             </form>
 
-
-                                <a href="{{ route('cause.edit', $user->id) }} " class="pull-left btn btn-success btn-sm"><i class="fa fa-edit"></i> تعديل</a>
                                 @endif
+                                <a href="{{ route('cause.edit', $user->id) }} " class="pull-left btn btn-success btn-sm"><i class="fa fa-edit"></i> تعديل</a>
+
                                 <a href="{{ route('cause.show', $user->id) }} " class="pull-left btn btn-info btn-sm"><i class="fa fa-eye"></i> عرض </a>
                             </td>
                         </tr>

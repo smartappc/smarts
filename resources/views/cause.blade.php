@@ -5,7 +5,7 @@
     <div class="box">
         <div class="overlay">
     <a href="{{ route('cause.create') }}" class="btn btn-success add"><i class="fa fa-plus"></i> أضافة قضية جديدة </a>
-      <h2 class="title">جيمع القضايا</h2>
+      <h2 class="title">جميع القضايا</h2>
     <table id="main" class="table table-bordered table-striped text-center datatable">
         <thead>
         <tr>
@@ -21,12 +21,10 @@
         </thead>
         <tbody>
         @if(count($cause) > 0 )
-
-           <?php $serial_no = count($cause)  ; ?><!-- serial number -->
-
-            @foreach($cause as $c)
+            <?php $serial_no = count($cause) ; ?><!-- serial number -->
+            @foreach($cause as $key => $c)
                 <tr>
-                    <td> {{  $serial_no -- }}</td>
+                    <td> {{$serial_no -- }}</td>
                     <td> {{ $c->number }}</td>
                     <td> {{ $c->child_id }}</td>
                     <td> {{ $c->prosection_id }}</td>
@@ -60,7 +58,7 @@
 
                         {!!  str_replace("\r\n", "<br>", $c->accused_name)  !!}
                     </td>
-                    <td> {{ $c->user }}</td>
+                    <td> <a href="{{route('userCause', $c->user)}}"> {{ $c->user }} </a></td>
                      <td>
                          @if(!Auth::guest() && Auth::user()->status == 1)
                         <form class="pull-left" action="{{  route('cause.destroy', $c->id) }}" method="post" enctype="multipart/form-data">

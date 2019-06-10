@@ -19,27 +19,31 @@ class CauseController extends Controller
     }
     public function index()
     {
-        $cause = cause::where('status', 1)->orderBy('id', 'DESC')->get();
+       $cause = cause::where('status', 1)->orderBy( 'number',  'DESC')->get();
+        //$cause = DB::select('select * from causes  order by , number ASC ');
         return view('cause')->with('cause', $cause);
     }
 
     //رقم الجنايات
     public function prosection() {
-        $cause = DB::select('select * from causes where prosection_id != ""  order by id desc ');
+        $cause = DB::select('select * from causes where prosection_id != ""  order by number desc ');
         return view('prosection')->with('cause', $cause);
     }
 
     //رقم الادارة العامة للتحقيقات
     public function child() {
-        $cause = DB::select('select * from causes where child_id != "" order by id desc ');
+        $cause = DB::select('select * from causes where child_id != "" order by number  desc ');
         return view('childs')->with('cause', $cause);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    //قضايا المستخدم
+    public function userCause($user) {
+        $cause = cause::where('status', 1)->where('user', $user)->orderBy( 'number',  'DESC')->get();
+        return view('user-cause',compact('cause', 'user'));
+    }
+
+
+
     public function create()
     {
         $officer = officer::all();
@@ -73,81 +77,106 @@ class CauseController extends Controller
             'officer_date'          => 'required',
         ], $msg);
 
+        //select number
+
+
         $cause = new cause();
-        //in case empty child_id  put  ''
-        $child = !empty($request->input('number3')) ? $request->input('number3') .  '/' .  $request->input('child_id') : '';
 
-        $cause->number               = $request->input('number2') . '/' .  $request->input('number');
-        $cause->child_id             = $child;
-        $cause->prosection_id        = $request->input('prosection_id');
-        $cause->referral_id          = $request->input('referral_id');
-        $cause->inc_date             = $request->input('inc_date');
-        //start victim
-        $cause->victim_name1          = $request->input('victim_name1');
-        $cause->victim_id1            = $request->input('victim_id1');
-        $cause->victim_nationality1   = $request->input('victim_nationality1');
-        $cause->victim_birthday1      = $request->input('victim_birthday1');
+       $number               =   $request->input('number') . '/' .  $request->input('number2');
+       $child = !empty($request->input('number3')) ?   $request->input('child_id') .  '/' . $request->input('number3') : $request->input('child_id');
+       $prosection_id = !empty($request->input('number4')) ?   $request->input('prosection_id') .  '/' . $request->input('number4') : $request->input('prosection_id');
 
-        $cause->victim_name2          = $request->input('victim_name2');
-        $cause->victim_id2            = $request->input('victim_id2');
-        $cause->victim_nationality2   = $request->input('victim_nationality2');
-        $cause->victim_birthday2      = $request->input('victim_birthday2');
+        //check number found or not found
+        $number_found = cause::where('number', $number)->get();
+        if ($number_found->count() > 0) {
+            return redirect(route('cause.index'))->with('error', 'عفوا رقم حصر حماية الطفل ' . $number .'  موجود من قبل');
+        }
 
-        $cause->victim_name3          = $request->input('victim_name3');
-        $cause->victim_id3            = $request->input('victim_id3');
-        $cause->victim_nationality3   = $request->input('victim_nationality3');
-        $cause->victim_birthday3      = $request->input('victim_birthday3');
+        //check child_id found or not found
+        $child_id_num = $request->input('child_id') .  '/' . $request->input('number3');
+        $child_id_found = cause::where('child_id', $child_id_num)->get();
+        if ($child_id_found ->count() > 0) {
+            return redirect(route('cause.index'))->with('error', '  عفوا رقم حصر الادارة العامة للتحقيقات ' . $child_id_num. ' موجود من قبل');
+        }
 
-        $cause->victim_name4          = $request->input('victim_name4');
-        $cause->victim_id4            = $request->input('victim_id4');
-        $cause->victim_nationality4   = $request->input('victim_nationality4');
-        $cause->victim_birthday4      = $request->input('victim_birthday4');
+        //check prosection_id found or not found
+        $prosection_id_num = $request->input('prosection_id') .  '/' . $request->input('number4');
+        $prosection_id_found = cause::where('prosection_id', $prosection_id_num)->get();
+        if ($prosection_id_found ->count() > 0) {
+            return redirect(route('cause.index'))->with('error', '  عفوا رقم الجنايات ' . $prosection_id_num. ' موجود من قبل');
+        }
 
-        $cause->victim_name          = $request->input('victim_name');
-        $cause->victim_id            = $request->input('victim_id');
-        $cause->victim_nationality   = $request->input('victim_nationality');
-        $cause->victim_birthday      = $request->input('victim_birthday');
-        //end victim
+       $cause->number               =  $number;
+       $cause->child_id             = $child;
+       $cause->prosection_id        = $prosection_id;
+       $cause->referral_id          = $request->input('referral_id');
+       $cause->inc_date             = $request->input('inc_date');
+       //start victim
+       $cause->victim_name1          = $request->input('victim_name1');
+       $cause->victim_id1            = $request->input('victim_id1');
+       $cause->victim_nationality1   = $request->input('victim_nationality1');
+       $cause->victim_birthday1      = $request->input('victim_birthday1');
 
-        //start accused
-        $cause->accused_name1         = $request->input('accused_name1');
-        $cause->accused_id1           = $request->input('accused_id1');
-        $cause->accused_nationality1  = $request->input('accused_nationality1');
-        $cause->accused_birthday1     = $request->input('accused_birthday1');
+       $cause->victim_name2          = $request->input('victim_name2');
+       $cause->victim_id2            = $request->input('victim_id2');
+       $cause->victim_nationality2   = $request->input('victim_nationality2');
+       $cause->victim_birthday2      = $request->input('victim_birthday2');
 
-        $cause->accused_name2         = $request->input('accused_name2');
-        $cause->accused_id2           = $request->input('accused_id2');
-        $cause->accused_nationality2  = $request->input('accused_nationality2');
-        $cause->accused_birthday2     = $request->input('accused_birthday2');
+       $cause->victim_name3          = $request->input('victim_name3');
+       $cause->victim_id3            = $request->input('victim_id3');
+       $cause->victim_nationality3   = $request->input('victim_nationality3');
+       $cause->victim_birthday3      = $request->input('victim_birthday3');
 
-        $cause->accused_name3         = $request->input('accused_name3');
-        $cause->accused_id3           = $request->input('accused_id3');
-        $cause->accused_nationality3  = $request->input('accused_nationality3');
-        $cause->accused_birthday3     = $request->input('accused_birthday3');
+       $cause->victim_name4          = $request->input('victim_name4');
+       $cause->victim_id4            = $request->input('victim_id4');
+       $cause->victim_nationality4   = $request->input('victim_nationality4');
+       $cause->victim_birthday4      = $request->input('victim_birthday4');
 
-        $cause->accused_name4         = $request->input('accused_name4');
-        $cause->accused_id4           = $request->input('accused_id4');
-        $cause->accused_nationality4  = $request->input('accused_nationality4');
-        $cause->accused_birthday4     = $request->input('accused_birthday4');
+       $cause->victim_name          = $request->input('victim_name');
+       $cause->victim_id            = $request->input('victim_id');
+       $cause->victim_nationality   = $request->input('victim_nationality');
+       $cause->victim_birthday      = $request->input('victim_birthday');
+       //end victim
 
-        $cause->accused_name         = $request->input('accused_name');
-        $cause->accused_id           = $request->input('accused_id');
-        $cause->accused_nationality  = $request->input('accused_nationality');
-        $cause->accused_birthday     = $request->input('accused_birthday');
-        //end accused
+       //start accused
+       $cause->accused_name1         = $request->input('accused_name1');
+       $cause->accused_id1           = $request->input('accused_id1');
+       $cause->accused_nationality1  = $request->input('accused_nationality1');
+       $cause->accused_birthday1     = $request->input('accused_birthday1');
 
-        $cause->accusation           = $request->input('accusation');
-        $cause->description          = $request->input('description');
-        $cause->author               = $request->input('author');
-        $cause->officer_id           = $request->input('officer_id');
-        $cause->officer_date         = $request->input('officer_date');
-        $cause->act_date             = $request->input('act_date');
-        $cause->act_place            = $request->input('act_place');
-        $cause->user                 = auth()->user()->full_name;
+       $cause->accused_name2         = $request->input('accused_name2');
+       $cause->accused_id2           = $request->input('accused_id2');
+       $cause->accused_nationality2  = $request->input('accused_nationality2');
+       $cause->accused_birthday2     = $request->input('accused_birthday2');
+
+       $cause->accused_name3         = $request->input('accused_name3');
+       $cause->accused_id3           = $request->input('accused_id3');
+       $cause->accused_nationality3  = $request->input('accused_nationality3');
+       $cause->accused_birthday3     = $request->input('accused_birthday3');
+
+       $cause->accused_name4         = $request->input('accused_name4');
+       $cause->accused_id4           = $request->input('accused_id4');
+       $cause->accused_nationality4  = $request->input('accused_nationality4');
+       $cause->accused_birthday4     = $request->input('accused_birthday4');
+
+       $cause->accused_name         = $request->input('accused_name');
+       $cause->accused_id           = $request->input('accused_id');
+       $cause->accused_nationality  = $request->input('accused_nationality');
+       $cause->accused_birthday     = $request->input('accused_birthday');
+       //end accused
+
+       $cause->accusation           = $request->input('accusation');
+       $cause->description          = $request->input('description');
+       $cause->author               = $request->input('author');
+       $cause->officer_id           = $request->input('officer_id');
+       $cause->officer_date         = $request->input('officer_date');
+       $cause->act_date             = $request->input('act_date');
+       $cause->act_place            = $request->input('act_place');
+       $cause->user                 = auth()->user()->full_name;
 
 
-        $cause->save();
-        return redirect(route('cause.index'))->with('msg', 'تم حفظ البيانات بنجاح');
+       $cause->save();
+       return redirect(route('cause.index'))->with('msg', 'تم حفظ البيانات بنجاح');
     }
 
     /**
@@ -159,6 +188,7 @@ class CauseController extends Controller
     public function show($id)
     {
          $cause = cause::find($id);
+
          $officer = officer::find($cause->officer_id);
          $refferal = referral::find($cause->referral_id);
          $accusation = accusation::find($cause->accusation);
@@ -231,9 +261,13 @@ class CauseController extends Controller
 
 
         $cause = cause::find($id);
-        $cause->number               = $request->input('number');
-        $cause->child_id             = $request->input('child_id');
-        $cause->prosection_id        = $request->input('prosection_id');
+        //in case empty child_id  put  ''
+        $child = !empty($request->input('number3')) ?   $request->input('child_id') .  '/' . $request->input('number3') : $request->input('child_id');
+        $prosection_id = !empty($request->input('number4')) ?   $request->input('prosection_id') .  '/' . $request->input('number4') : $request->input('prosection_id');
+
+        $cause->number               = $request->input('number') . '/' .  $request->input('number2');
+        $cause->child_id             = $child;
+        $cause->prosection_id        = $prosection_id;
         $cause->referral_id          = $request->input('referral_id');
         $cause->inc_date             = $request->input('inc_date');
 

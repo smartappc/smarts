@@ -41,7 +41,7 @@
     <div class="panel-heading text-center">التحكم بالقضايا</div>
     <div class="panel-body main-categories">
         <ul>
-            <li><a href="/smarts/cause"><i class="fa fa-control"></i> جيمع القضايا  </a> </li>
+            <li><a href="/smarts/cause"><i class="fa fa-control"></i> جميع القضايا  </a> </li>
             <li><a href="/smarts/child"><i class="fa fa-control"></i>قضايا الإدارة العامة للتحقيقات  </a> </li>
             <li><a href="/smarts/prosection"><i class="fa fa-control"></i> قضايا الجنايات  </a> </li>
         </ul>

@@ -10,7 +10,7 @@ class MainController extends Controller
 
 
     public  function main() {
-        $cause = cause::where('status', 1)->orderBy('id', 'DESC')->paginate(10);
+        $cause = cause::where('status', 1)->orderBy( 'number',  'DESC')->get();
         return view('cause')->with('cause', $cause);
     }
  }

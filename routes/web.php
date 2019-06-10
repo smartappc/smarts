@@ -13,6 +13,9 @@
 
  
 Route::get('/', ['uses' => 'MainController@main', 'middleware' => 'auth']);
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group([ 'middleware'=> 'auth'] , function () {
     Route::resource('cause', 'CauseController');
@@ -23,11 +26,13 @@ Route::group([ 'middleware'=> 'auth'] , function () {
     Route::resource('SetPassword', 'SetPasswordController');
     Route::resource('referrals', 'ReferralsController');
      Route::resource('nationals', 'NationalsController');
-});
+
 
 //prosection
 Route::get('/prosection', 'CauseController@prosection');
 Route::get('/child', 'CauseController@child');
+//cause user
+Route::get('/user/{user}', 'CauseController@userCause')->name('userCause');
 
 Route::get('/signout', 'UsersController@signout')->name('signout');
 
@@ -74,15 +79,12 @@ Route::post( '/search/act_date', 'SearchController@act_date');
 Route::get( '/search/officer_date', 'SearchController@officer_date')->name('officer_date');
 Route::post( '/search/officer_date', 'SearchController@officer_date');
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
 
 //change password
 Route::get('/changePassword','ProfileController@showChangePasswordForm')->name('change');
 Route::post('/changePassword','ProfileController@changePassword')->name('changePassword');
 
+});
 
 //print
 //Route::get('/pdf', 'PrintController@fun_pdf')->name('pdf');
